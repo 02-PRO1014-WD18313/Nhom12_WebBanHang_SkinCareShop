@@ -48,16 +48,22 @@ nav ul {
 	padding: 0;
 	display: flex;
 	flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #577567;
+  height: 40px;
+ 
 }
 
 nav ul li {
 	margin-right: 60px;
 	font-size: 20px;
+  padding-top: 10px;
 }
 
 nav ul li a {
 	color: #0e0c0c;
 	text-decoration: none;
+  color: #fff;
 
 }
 nav ul li a:hover{
@@ -141,31 +147,46 @@ form .number {
   color: #577567;
 }
 footer {
-	background-color: #efdfdf;
-	color: #070707;
+	background-color: #577567;
+	color: #fff;
 	padding: 20px;
 	text-align: center;
 }
-
+.dk{
+  height: 30px;
+  width: 100px;
+  margin-left: 50px;
+  border-radius: 30px;
+  background-color: #577567;
+  color: #fff;
+  border: 2px solid #070707;
+}
+.dk:hover{
+  background-color: #fff;
+  color: #080808;
+}
     </style>
 </head>
 <body>
     <header>
     <img src="img/z4890286213913_d7f098b640e226b696fd0ff2431a25d3.jpg" alt="logo">
-    <!-- <nav>
+    <form action="" method="post">
+      <input type="search" value="" placeholder="Tìm kiếm sản phẩm bạn muốn">
+      <button>Tìm Kiếm</button>
+    </form>
+    <div>
+      <button class="dk">Đăng kí</button>
+      <!-- <button class="dn">đăng nhập</button> -->
+    </div>
+  </header>
+  <nav>
       <ul>
         <li><a href="#">Trang chủ</a></li>
         <li><a href="#">Sản phẩm</a></li>
         <li><a href="#">Giới thiệu</a></li>
         <li><a href="#">Liên hệ</a></li>
       </ul>
-    </nav> -->
-    <form action="" method="post">
-      <input type="search" value="" placeholder="Tìm kiếm sản phẩm bạn muốn">
-      <button>Tìm Kiếm</button>
-    </form>
-  </header>
-  
+    </nav>
   <main>
     <div class="product-container">
       <img class="product-image" src="img/a2685e8a-4642-41be-9e2c-70895f7f2a2b.png" alt="Hình ảnh sản phẩm">

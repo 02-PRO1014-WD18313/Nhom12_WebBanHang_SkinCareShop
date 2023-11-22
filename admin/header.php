@@ -139,7 +139,7 @@
                     <a href="index.html" class="logo text-center">
                         <span class="logo-lg">
                            <a href="index.php">
-                           <img src="assets\images\users\z4890286213913_d7f098b640e226b696fd0ff2431a25d3.jpg" class="rounded-circle" width="150px" height="120px">
+                           <img src="assets\images\users/skincareshop.png" class="rounded-circle" width="150px" height="120px">
     
                            </a>
                           

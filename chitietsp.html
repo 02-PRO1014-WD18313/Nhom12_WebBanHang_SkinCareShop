@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	background-color:#fff;
+	color: #070707;
+	display: flex;
+	flex-direction: row;
+	justify-content:center;
+	align-items: center;
+	padding: 20px;
+}
+
+header img {
+	width: 100px;
+}
+header form input {
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+form button{
+    height: 30px;
+    border-radius: 5px;
+    background-color:#0c0c0c;
+    color: #fff;
+}
+form button:hover{
+    background-color: #fff;
+    color:grey;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #577567;
+  height: 40px;
+ 
+}
+
+nav ul li {
+	margin-right: 60px;
+	font-size: 20px;
+  padding-top: 10px;
+}
+
+nav ul li a {
+	color: #0e0c0c;
+	text-decoration: none;
+  color: #fff;
+
+}
+nav ul li a:hover{
+    color: red;
+}
+h1 {
+	color: #333;
+	text-align: center;
+}
+.product-image{
+  width: 500px;
+  height: 500px;
+}
+.product-info{
+  margin-left: 15px;
+}
+.product-container {
+	margin-top: 20px;
+	height: 600px;
+	display: flex;
+	justify-content: space-evenly;
+	border: 1px;
+
+}
+
+.product-title {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.product-description {
+	color: #666;
+	margin-bottom: 10px;
+	padding-top: 10px;
+}
+
+.product-description p {
+	margin-top: 10px;
+}
+
+.product-price {
+	color: #e60000;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+form .radio {
+	margin-top: 10px;
+	margin-left: 30px;
+}
+
+form .number {
+	width: 100px;
+	height: 30px;
+	border-radius: 10px;
+
+}
+
+.btn button {
+	
+	width: 200px;
+	height: 40px;
+	background-color: #577567;
+  color: #fff;
+	border: 1px solid black;
+	border-radius: 10px;
+	font-family: Work Sans;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;	
+}
+.btn button a{
+  background-color:#fff;
+	color:#577567;
+  text-decoration: none;
+}
+.btn button:hover{
+  background-color: #fff;
+  color: #577567;
+}
+footer {
+	background-color: #577567;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+}
+.dk{
+  height: 30px;
+  width: 100px;
+  margin-left: 50px;
+  border-radius: 30px;
+  background-color: #577567;
+  color: #fff;
+  border: 2px solid #070707;
+}
+.dk:hover{
+  background-color: #fff;
+  color: #080808;
+}
+.cart-icon {
+  position: relative;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.cart-icon img {
+  width: 25px;
+  height: 25px;
+
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 5px;
+  font-size: 12px;
+}
+    </style>
+</head>
+<body>
+    <header>
+    <img src="img/z4890286213913_d7f098b640e226b696fd0ff2431a25d3.jpg" alt="logo">
+    <form action="" method="post">
+      <input type="search" value="" placeholder="Tìm kiếm sản phẩm bạn muốn">
+      <button>Tìm Kiếm</button>
+    </form>
+    <div>
+      <button class="dk">Đăng kí</button>
+      <!-- <button class="dn">đăng nhập</button> -->
+      <div class="cart-icon">
+        <img src="img/shopping-cart.png" alt="Cart Icon">
+        <span class="cart-count">0</span>
+      </div>
+    </div>
+  </header>
+  <nav>
+      <ul>
+        <li><a href="#">Trang chủ</a></li>
+        <li><a href="#">Sản phẩm</a></li>
+        <li><a href="#">Giới thiệu</a></li>
+        <li><a href="#">Liên hệ</a></li>
+      </ul>
+    </nav>
+  <main>
+    <div class="product-container">
+      <img class="product-image" src="img/a2685e8a-4642-41be-9e2c-70895f7f2a2b.png" alt="Hình ảnh sản phẩm">
+      <div class="product-info">
+        <h1>Bộ mỹ phẩm chăm sóc da dưỡng ẩm làm trắng hiệu quả</h1>
+        <p class="product-description"> Thương hiệu: Han Se<br><br>
+            Loại sản phẩm: Kem dưỡng da<br> <br>
+            Hiệu quả: dưỡng ẩm ,làm trắng, thu nhỏ lỗ chân lông<br>
+            Đặc điểm kỹ thuật loại: phù hợp <br>
+            Nội dung thực: 100mL<br>
+            Loại da áp dụng: Mọi loại da<br><br>
+            Cho dù nó là một loại mỹ phẩm chuyên dụng: Không <br><br> </p>
+        <p class="product-price">Giá: 215k</p>
+        <form action="" method="get">
+          
+          <input class="number" type="number" name="number" id="number"><br><br>
+          <div class="btn">
+            <button><a href="#" target="_blank">Thêm vào giỏ hàng</a></button>
+            <button type="submit">Mua ngay</button>
+            
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>© 2023 Trang Chi Tiết. Tất cả các quyền được bảo vệ.</p>
+    <p>Mọi thắc mắc xin liên hệ</p>
+    <p>Email:hoangthuuyen0211@gmail.com</p>
+  </footer>
+</body>
+</html>

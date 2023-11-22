@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6">
-                    2023 &copy; Chào mừng đến MenStrore !!!
+                    2023 &copy; Chào mừng đến Skincare shop !!!
                 </div>
                 <div class="col-md-6">
                     <div class="text-md-right footer-links d-none d-sm-block">

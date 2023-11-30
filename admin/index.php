@@ -3,6 +3,7 @@ include "../model/pdo.php";
 include "header.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
+include "../model/taikhoan.php";
 //controller
 
 if (isset($_GET['act'])) {
@@ -55,10 +56,9 @@ if (isset($_GET['act'])) {
                 $iddm = $_POST['iddm'];
                 $tensp = $_POST['tensp'];
                 $giasp = $_POST['giasp'];
-                $size= $_POST['size'];
                 $mota = $_POST['mota'];
                 $img = $_FILES['hinh']['name'];
-                $target_dir = "../upload/";
+                $target_dir = "../views/images/";
                 $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
                 if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
                     //
@@ -66,7 +66,7 @@ if (isset($_GET['act'])) {
                     //
                 }
 
-                inser_sanpham($tensp, $giasp, $img,$size, $mota, $iddm);
+                inser_sanpham($tensp, $giasp, $img, $mota, $iddm);
                 $thongbao = "Thêm thành công";
             }
             $listdanhmuc = loadall_danhmuc();
@@ -107,10 +107,9 @@ if (isset($_GET['act'])) {
                 $iddm = $_POST['iddm'];
                 $tensp = $_POST['tensp'];
                 $giasp = $_POST['giasp'];
-                $size = $_POST['size'];
                 $mota = $_POST['mota'];
                 $hinh = $_FILES['hinh']['name'];
-                $target_dir = "../upload/";
+                $target_dir = "../views/images/";
                 $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
                 if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
                     //
@@ -118,12 +117,23 @@ if (isset($_GET['act'])) {
                     //
                 }
 
-                update_sanpham($id, $iddm, $tensp, $giasp,$size, $mota, $hinh);
+                update_sanpham($id, $iddm, $tensp, $giasp, $mota, $hinh);
                 $thongbao = "Cập nhật thành công";
             }
             $listdanhmuc = loadall_danhmuc();
             $listsanpham = loadall_sanpham();
             include "sanpham/list.php";
+            break;
+        case 'dskh':
+            $listtaikhoan = loadall_taikhoan();
+            include "taikhoan/list.php";
+            break;
+        case 'xoakh':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_taikhoan($_GET['id']);
+            }
+            $listtaikhoan = loadall_taikhoan();
+            include "taikhoan/list.php";
             break;
         default:
             include "home.php";

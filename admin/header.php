@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Admin_Skincare shop</title>
+        <title>Skincare Shop</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
         <meta content="Coderthemes" name="author">
@@ -11,17 +11,13 @@
         
 
         <!-- plugin css -->
-        <link href="..\assets\libs\jquery-vectormap\jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
+        <link href=".\assets\libs\jquery-vectormap\jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
 
         <!-- App css -->
         <link href=".\assets\css\bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href=".\assets\css\icons.min.css" rel="stylesheet" type="text/css">
         <link href=".\assets\css\app.min.css" rel="stylesheet" type="text/css">
-        <style>
-            .sidebar-menu {
-                color: red;
-            }
-        </style>
+
     </head>
 
     <body>
@@ -70,8 +66,8 @@
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item active">
                                     <div class="notify-icon">
-                                        <img src="assets\images\users\user-4.jpg" class="img-fluid rounded-circle" alt=""> </div>
-                                    <p class="notify-details">Cristina Pride</p>
+                                        <img src="assets\images\users/z4499292518792_c7684e6806e3025cf8dd91ff2f4ee21f.jpg" class="img-fluid rounded-circle" alt=""> </div>
+                                    <p class="notify-details">UyeenHoanggThi</p>
                                     <p class="text-muted mb-0 user-msg">
                                         <small>Hi, How are you? What about our next meeting</small>
                                     </p>
@@ -87,7 +83,7 @@
 
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="assets\images\users\user-1.jpg" alt="user-image" class="rounded-circle" width="100px">
+                            <img src="assets\images\users/z4499292525327_b3901289266ee63ab41346d2c3a2f883.jpg" alt="user-image" class="rounded-circle" width="100px">
                             <span class="pro-user-name ml-1">
                                 Admin <i class="mdi mdi-chevron-down"></i> 
                             </span>
@@ -194,7 +190,7 @@
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
                                     <li>
-                                        <a href="index.php?act=lissp">Danh sách sản phẩm</a>
+                                        <a href="index.php?act=listsp">Danh sách sản phẩm</a>
                                     </li>
                                     <li>
                                         <a href="index.php?act=addsp">Thêm danh sản phẩm</a>
@@ -209,7 +205,7 @@
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
                                     <li>
-                                        <a href="apps-calendar.html">Danh sách tài khoản</a>
+                                        <a href="index.php?act=dskh">Danh sách tài khoản</a>
                                     </li>
                                 </ul>
                             </li>
@@ -255,7 +251,7 @@
                 <!-- User box -->
                 <div class="user-box">
                     <div class="user-img">
-                        <img src="assets\images\users\user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
+                        <img src="assets\images\users/z4499292518792_c7684e6806e3025cf8dd91ff2f4ee21f.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
                         <a href="javascript:void(0);" class="user-edit"><i class="mdi mdi-pencil"></i></a>
                     </div>
             

@@ -1,108 +1,51 @@
-<div class="content-page">
-    <div class="content">
+<div class="tb">
+    <table border="1">
+        <tr>
+            <th>MÃ LOẠI</th>
+            <th>TÊN SẢN PHẨM</th>
+            <th>HÌNH</th>
+            <th>GIÁ</th>
+            <th>Mã sản phẩm</th>
+            <th>Mô Tả</th>
+            <th>
+                Loại sản phẩm
 
-        <!-- Start Content-->
-        <div class="container-fluid">
+            </th>
+            <th>
+                <a href="index.php?act=addsp"><input class="custom-icons2" type="button" name="them" value="Thêm"></a></td>
+                <!--thêm ảnh láy theo idpro  -->
+            </th>
 
-            <!-- start page title -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title-box">
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="index.php">Trang chủ admin</a></li>
-                                <li class="breadcrumb-item active">Danh sách sản phẩm</li>
-                            </ol>
-                        </div>
-                        <h3 class="page-title">DANH SÁCH SẢN PHẨM</h3>
-                        
-<div class="container-fluid">
-
-<!-- Page Heading -->
-
-
-<!-- DataTales Example -->
-            <div class="card shadow mb-4">
-                <div class="card-body">
-                    <div class="table-responsive">
-                    <form action="index.php?act=litssp" method="post">
-            </form>
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>STT</th>
-                        <th>TÊN SẢN PHẨM</th>
-                        <th>GÍA</th>
-                        <th>HÌNH ẢNH</th>
-                        <th>MÔ TẢ</th>
-                        <th>MÃ LOẠI</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <?php
-            foreach ($listsanpham as $sanpham){                
-            extract($sanpham);
-            $suasp = "index.php?act=suasp&id=".$id;
-            $xoasp = "index.php?act=xoasp&id=".$id;
-            $hinhpath = "../views/images/".$img;
-            if(is_file($hinhpath)){
-                $hinh="<img src='".$hinhpath."' height = '80'>";
-            }else{
-                $hinh = "no photo";
-            }
-
-            echo '
-                <tr>
-                    <td><input type="checkbox" name= "chk" id=""></td>
-                    <td>'.$id.'</td>
-                    <td>'.$name.'</td>
-                    <td>'.$price.'</td>
-                    <td>'.$hinh.'</td>
-                    <td>'.$mota.'</td>
-                    <td>'.$iddm.'</td>
-                    <td><a href= "'.$suasp.'"><input style="margin-bottom: 5px" class="btn-primary" type="button" value="Sửa"></a> <a href= "'.$xoasp.'"><input  class="btn-danger" type="button" value="Xóa"></a> </td>
-                </tr>
-            ';
-            }
-        ?>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="input_button">
-                <input onclick="selects()" class="btn-info" type="button" value="Chọn tất cả">
-                <input onclick="deSelect()" class="btn-info " type="button" value="Bỏ chọn tất cả">
-                <input class="btn-danger" type="button" value="Xóa các mục đã chọn">
-                <a href="index.php?act=addsp"><input class="btn-success" type="button" value="Nhập thêm"></a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript">
-    function selects(){  
-            var ele=document.getElementsByName('chk');  
-            for(var i=0; i<ele.length; i++){  
-                if(ele[i].type=='checkbox')  
-                    ele[i].checked=true;  
-            }  
-        }  
-        function deSelect(){  
-            var ele=document.getElementsByName('chk');  
-            for(var i=0; i<ele.length; i++){  
-                if(ele[i].type=='checkbox')  
-                    ele[i].checked=false;  
-            }  
-        }  
-</script>
-
-                    </div>
+            <?php
+            foreach ($listsanpham as $sanpham) {
+                extract($sanpham);
+                $suasp = "index.php?act=suasp&id=" . $id;
+                $xoasp = "index.php?act=xoasp&id=" . $id;
+                $addimage = "index.php?act=addimage&id=" . $id;
+                $hinhpath = "../upload/" . $img;
+                if (is_file($hinhpath)) {
+                    $hinh = "<img src='" . $hinhpath . "' height='80'>";
+                } else {
+                    $hinh = "Không có ảnh";
+                }
                 
-                    
-                </div>
-            </div>
-
-        </div>
-        <!-- end page title -->
+                $loai = loadone_danhmuc($iddm);
+                echo '
+                    <tr>
+                        <td>' . $id . '</td>
+                        <td>' . $name . '</td>
+                        <td>' . $hinh . '</td>
+                        <td>' . $price . '</td>
+                        <td>' . $masp . '</td>
+                        <td>' . $mota . '</td>
+                        <td>'.$loai['name'].'</td>
+                        <td>
+                            <a href="' . $suasp . '"><input class="custom-icons2" type="button" value="Sửa"></a>  
+                            <a href="' . $xoasp . '"><input class="custom-icons3" type="button" value="Xóa" onclick="return confirm (\'Bạn có muốn xóa sản phẩm không ? \')"></a>
+                            <a href="' . $addimage . '"><input class="custom-icons2" type="button" value="Thêm Ảnh"></a>
+                        </td>
+                    </tr>';    
+            }?>
+         
+    </table>
+</div>

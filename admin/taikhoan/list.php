@@ -1,117 +1,57 @@
-<div class="content-page">
-    <div class="content">
+<div class="tb">
+    <table border="1">
+        <tr>
+            <th>ID</th>
+          
+            <th>
+                 User
+            </th>
 
-        <!-- Start Content-->
-        <div class="container-fluid">
+            <th>
+                PassWord
+            </th>
+            <th>
+              Email
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                ROLE
+            </th>
+            <th>
+            <a href="index.php?act=addtk"><input  class="custom-icons2" type="button" value="Thêm "></a>
+            </th>
 
-            <!-- start page title -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title-box">
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="index.php">Trang chủ admin</a></li>
-                                <li class="breadcrumb-item active">Danh sách sản phẩm</li>
-                            </ol>
-                        </div>
-                        <h3 class="page-title">DANH SÁCH SẢN PHẨM</h3>
-                        
-                        <div class="container-fluid">
 
-<!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">DANH SÁCH KHÁCH HÀNG</h1>
+            
+        </tr>
+        <?php
+        foreach ($listtk as $taikhoan) {
+            extract($taikhoan);
 
-<!-- DataTales Example -->
-<div class="card shadow mb-4">
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
+            $xoatk = "index.php?act=xoatk&id=" . $id;
+            $suatk = "index.php?act=suatk&id=" . $id;
+            echo '
                     <tr>
-                        <th></th>
-                        <th>MÃ TK</th>
-                        <th>USER</th>
-                        <th>PASS</th>
-                        <th>EMAIL</th>
-                        <th>ADDRESS</th>
-                        <th>TEL</th>
-                        <th>ROLE</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <?php
-                        foreach ($listtaikhoan as $taikhoan){                
-                        extract($taikhoan);
-                        $suatk = "index.php?act=suatk&id=".$id;
-                        $xoatk = "index.php?act=xoakh&id=".$id;
-                        
-                        echo '
-                            <tr>
-                                <td><input type="checkbox" name= "chk" id="'.$id.'"></td>
-                                <td>'.$id.'</td>
-                                <td>'.$user.'</td>
-                                <td>'.$pass.'</td>
-                                <td>'.$email.'</td>
-                                <td>'.$address.'</td>
-                                <td>'.$tel.'</td>
-                                <td>'.$role.'</td>
-                                <td><a href= "'.$xoatk.'"><input class="btn-danger" type="button" value="Xóa"></a> </td>
-                            </tr>
-                        ';
-                        }
-                    ?>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="input_button">
-                <input onclick="selects()" class="btn-info" type="button" value="Chọn tất cả">
-                <input onclick="deSelect()" class="btn-info " type="button" value="Bỏ chọn tất cả">
-                <button onclick="deleteSelected()" class="btn-danger">Xóa các mục đã chọn</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript">  
-        function selects(){  
-            var ele=document.getElementsByName('chk');  
-            for(var i=0; i<ele.length; i++){  
-                if(ele[i].type=='checkbox')  
-                    ele[i].checked=true;  
-            }  
-        }  
-        function deSelect(){  
-            var ele=document.getElementsByName('chk');  
-            for(var i=0; i<ele.length; i++){  
-                if(ele[i].type=='checkbox')  
-                    ele[i].checked=false;  
-            }  
-        }  
-
-        function deleteSelected() {
-            document.cookie = "isSelected=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
-            var ele=document.getElementsByName('chk');
-            let idSelected = '';  
-            for(var i=0; i<ele.length; i++){  
-                if(ele[i].checked) {
-                    idSelected += ele[i].id + ','; 
-                } 
-            }  
-            if (idSelected) {
-                document.cookie = `isSelected=${idSelected}`;
-                window.location.replace('index.php?act=deletealluser');
-            }
+                    <td>' . $id . '</td>
+                    <td>' . $user . '</td>
+                    <td>' . $pass. '</td>
+                    <td>' . $email . '</td>
+                    <td>' . $address . '</td>
+                    <td>' . $tel . '</td>
+                    <td>' . $role . '</td>
+                   
+                    <td>
+                      <a href="' . $xoatk . '"><input  class="custom-icons3" type="button" value="Xóa"></a>
+                      <a href="' . $suatk . '"><input  class="custom-icons2" type="button" value="Sửa" ></a></td>
+                </tr>
+                    ';
         }
-        
-    </script>  
+        ?>
 
-
+    </table>
 </div>
-                
-                    
-                </div>
-            </div>
-
-        </div>

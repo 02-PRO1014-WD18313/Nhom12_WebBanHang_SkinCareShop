@@ -1,90 +1,138 @@
-<?php
-if (is_array($sanpham)) {
-    extract($sanpham);
-}
-$hinhpath = "../upload/" . $img;
-if (is_file($hinhpath)) {
-    $hinh = "<img src='" . $hinhpath . "' height = '80'>";
-} else {
-    $hinh = "no photo";
-}
+<!-- <?php
+        if (is_array($sanpham)) {
+            extract($sanpham);
+        }
+        $hinhpath = "../upload/" . $img;
+        if (is_file($hinhpath)) {
+            $hinh = "<img src='" . $hinhpath . "' height='80'>";
+        } else {
+            $hinh = "no photto";
+        }
+        ?> -->
+<br>
+<html lang="en">
 
-?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form1 {
+            width: 500px;
+            height: auto;
+            /* Change height to auto for dynamic content */
+            margin-top: 50px;
+            margin-left: 33%;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
+            padding: 20px;
+            border: 1px solid black;
+            /* Add padding for better spacing */
+            box-sizing: border-box;
+            /* Include padding in the total width/height */
+        }
 
-<style>
-    .row {
-        display: block;
-    }
-</style>
+        .form1 h2 {
+            text-align: center;
+            font-size: 30px;
+        }
 
-<div class="content-page">
-    <div class="content">
+        .form1 table {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            /* Adjusted margin-top for better spacing */
+        }
 
-        <!-- Start Content-->
-        <div class="container-fluid">
+        .form1 table tr {
+            margin-bottom: 20px;
+            /* Add margin between table rows for better spacing */
+        }
 
-            <!-- start page title -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title-box">
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="index.php">Trang chủ admin</a></li>
-                                <li class="breadcrumb-item active">Thêm danh mục</li>
-                            </ol>
-                        </div>
-                        <h3 class="page-title">Cập nhật sản phẩm</h3>
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-body">
-                                <div class="table-responsive1">
-                                    <form action="index.php?act=updatesp" method="POST" enctype="multipart/form-data">
-                                        <div class="row mb10">
-                                            <select name="iddm">
-                                                <option value="0" selected>Tât cả</option>
-                                                <?php
-                                                foreach ($listdanhmuc as $value) {
-                                                    // extract($danhmuc);
-                                                    if ($iddm == $value['id']) {
-                                                        echo '<option value="' . $value['id'] . '"selected>' . $value['name'] . '</option>';
-                                                    } else {
-                                                        echo '<option value="' . $value['id'] . '">' . $value['name'] . '</option>';
-                                                    }
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-                                        <div class="row mb10">
-                                            Tên sản phẩm <br>
-                                            <input type="text" name="tensp" value="<?= $name ?>">
-                                        </div>
-                                        <div class="row mb10">
-                                            Giá <br>
-                                            <input type="text" name="giasp" value="<?= $price ?>">
-                                        </div>
-                                        <div class="row mb10">
-                                            Hình ảnh <br>
-                                            <input type="file" name="hinh">
-                                            <?= $hinh ?>
-                                        </div>
-                                        <div class="row mb10">Mô tả <br>
-                                            <textarea name="mota" id="" cols="30" rows="10"><?= $mota ?></textarea>
-                                        </div>
-                                        <div class="row mb10">
-                                            <input type="hidden" name="id" value="<?= $id ?>">
-                                            <input class="btn-primary" type="submit" name="capnhat" value="Cập nhật">
-                                            <a href="index.php?act=listsp"><input class="btn-success" type="button" value="Danh sách"></a>
-                                        </div>
-                                        <?php
-                                        if (isset($thongbao) && ($thongbao != "")) echo $thongbao;
+        .form1 table td {
+            padding: 10px;
+            /* Add padding for better spacing */
+        }
 
-                                        ?>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        .sb {
+            margin-top: 20px;
+            /* Adjusted margin-top for better spacing */
+            margin-left: 40%;
+            height: 40px;
+            width: 120px;
+            background-color: #4CAF50;
+            color: #fff;
+            /* Set text color to white for better visibility */
+            border: none;
+            cursor: pointer;
+        }
 
-            </div>
-            <!-- end page title -->
+       
+
+        /* Add some styles to the input fields for better appearance */
+        .form1 input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 4px 0;
+            box-sizing: border-box;
+        }
+
+        /* Add hover effect for better interactivity */
+        .sb:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form1">
+        <form action="index.php?act=updatesp" method="post" enctype="multipart/form-data" name="#">
+            <!-- form add sản phẩm -->
+            <h2>Sửa Sản Phẩm</h2>
+            <table class="add">
+                <input type="hidden" name="id" value="<?php echo $id ?>">
+                <tr>
+                    <td>Tên sản phẩm</td>
+                    <td><input type="text" name="name" id="" value="<?php echo $name ?>"></td>
+                </tr>
+                <tr>
+                    <td>Mã sản phẩm</td>
+                    <td><input type="text" name="masp" id="" value="<?php echo $masp ?>"></td>
+                </tr>
+                <tr>
+                    <td>Ảnh sản phẩm</td>
+                    <td><input type="file" name="img" id="">
+                        <?php echo $img ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Loại sản phẩm</td>
+                    <td><select name="iddm" id="">
+                            <?php
+                            foreach ($listdanhmuc as $danhmuc) {
+                                if ($danhmuc['id'] == $danhmuc['name']) $s = "selected";
+                                else $s = "";
+                                echo '<option value="' . $danhmuc['id'] . '" ' . $s . '>' . $danhmuc['name'] . '</option>';
+                            };
+                            ?>
+
+                        </select>
+                </tr>
+                <tr>
+                    <td>Giá sản phẩm</td>
+                    <td><input type="text" name="price" id="" value="<?php echo $price ?>"></td>
+                </tr>
+                <tr>
+                    <td>Mô tả sản phẩm</td>
+                    <td><textarea name="mota" id="" cols="30" rows="10"><?php echo $mota ?></textarea></td>
+                </tr>
+            </table>
+
+            <input class="sb" type="submit" name="capnhap" value=" Cập Nhập">
+
+        </form>
+    </div>
+
+</body>
+
+</html>

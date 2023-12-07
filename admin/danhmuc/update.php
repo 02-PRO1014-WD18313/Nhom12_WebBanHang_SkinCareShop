@@ -1,110 +1,109 @@
-<style>
-    * {
-        box-sizing: border-box;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 1vw;
-    }
-
-    .row {
-        float: left;
-        width: 100%;
-    }
-
-    .mb {
-        margin-bottom: 15px;
-    }
-
-    .mb10 {
-        margin-bottom: 10px;
-    }
-
-    .demo {
-        min-height: 100px;
-        background-color: aqua;
-    }
-
-    .mr {
-        margin-right: 2%;
-    }
-
-    /* boxtaikhoan */
-    .formtaikhoan {
-        line-height: 150%;
-    }
-
-    .formtaikhoan input[type="text"],
-    .formtaikhoan input[type="email"],
-    .formtaikhoan input[type="password"],
-    .frmcontent input[type="text"] {
-        padding: 5px 10px;
-        margin: 5px;
-        width: 100%;
-        border: 1px #CCC solid;
-        border-radius: 5px;
-    }
-
-    .formtaikhoan input[type="checkbox"] {
-        border-radius: 5px;
-    }
-
-    .formtaikhoan input[type="submit"],
-    .frmcontent input[type="submit"],
-    .formtaikhoan input[type="reset"],
-    .frmcontent input[type="reset"],
-    .frmcontent input[type="button"] {
-        border-radius: 5px;
-        padding: 5px 10px;
-        margin: 5px;
-        background-color: white;
-        border: 1px #CCC solid;
-    }
-</style>
 <?php
-if (is_array($dm)) {
+  if(is_array($dm)){
     extract($dm);
-}
+  }
 ?>
-<div class="content-page">
-    <div class="content">
+<br>
+<html lang="en">
 
-        <!-- Start Content-->
-        <div class="container-fluid">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .form1 {
+    width: 500px;
+    height: auto; /* Change height to auto for dynamic content */
+    margin-top: 50px;
+    margin-left: 33%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
+    padding: 20px; /* Add padding for better spacing */
+    box-sizing: border-box; /* Include padding in the total width/height */
+}
 
-            <!-- start page title -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title-box">
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="index.php">Trang chủ admin</a></li>
-                                <li class="breadcrumb-item active">Thêm danh mục</li>
-                            </ol>
-                        </div>
-                        <h3 class="page-title">Cập nhật danh mục sản phẩm</h3>
-                    </div>
+.form1 h2 {
+    text-align: center;
+    font-size: 30px;
+}
 
-                    <div class="row frmcontent">
-                        <form action="index.php?act=updatedm" method="post">
-                            <div class="row mb10">Mã loại <br>
-                                <input type="text" name="maloai" disabled placeholder="auto number">
-                            </div>
-                            <div class="row mb10">Tên loại <br>
-                                <input type="text" name="tenloai" value="<?php if (isset($name) && ($name != "")) echo $name; ?>">
-                            </div>
-                            <div class="row mb10">
-                                <input type="hidden" name="id" value="<?php if (isset($id) && ($id > 0)) echo $id; ?>">
-                                <input type="submit" name="capnhat" value="Cập nhật">
-                                <input type="reset" value="Nhập lại">
-                                <a href="index.php?act=lisdm"> <input type="button" value="Danh sách"></a>
-                            </div>
-                            <?php
-                            if (isset($thongbao) && ($thongbao != "")) echo $thongbao;
-                            ?>
-                        </form>
-                    </div>
+.form1 table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px; /* Adjusted margin-top for better spacing */
+}
 
-                </div>
-            </div>
+.form1 table tr {
+    margin-bottom: 20px; /* Add margin between table rows for better spacing */
+}
 
+.form1 table td {
+    padding: 10px; /* Add padding for better spacing */
+}
+
+.sb {
+    margin-top: 20px; /* Adjusted margin-top for better spacing */
+    height: 40px;
+    width: 120px;
+    background-color: #4CAF50;
+    color: #fff; /* Set text color to white for better visibility */
+    border: none;
+    cursor: pointer;
+    margin-left: 40%;
+}
+
+.sc {
+    margin-top: 20px; /* Adjusted margin-top for better spacing */
+    text-align: center;
+}
+
+.sc a {
+    color: black;
+    font-size: larger;
+    text-decoration: none;
+}
+
+/* Add some styles to the input fields for better appearance */
+.form1 input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    box-sizing: border-box;
+}
+
+/* Add hover effect for better interactivity */
+.sb:hover {
+    background-color: #45a049;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div class="form1">
+        <form action="index.php?act=updatedm" method="post" enctype="multipart/form-data" name="#">
+            <!-- form add sản phẩm -->
+            <h2>Sửa Danh Mục</h2>
+            <table class="add">
+                <input type="hidden" name="id" value="<?php echo $id ?>">
+                <tr>
+                    <td>Tên sản phẩm</td>
+                    <td><input type="text" name="name" id="" value="<?php echo $name ?>"></td>
+                </tr>
+
+            </table>
+            <input class="sb" type="submit" name="capnhap" value="Thêm">
+
+
+
+        </form>
+        <div class="sc">
+
+            <a href="index.php?act=listsp"> Danh Sách</a>
         </div>
-        <!-- end page title -->
+    </div>
+
+</body>
+
+</html>

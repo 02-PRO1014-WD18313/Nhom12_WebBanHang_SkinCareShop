@@ -1,102 +1,40 @@
-<style>
-* {
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1vw;
-}
-.row {
-    float: left;
-    width: 100%;
-}
+<br>
+<br>
+<html lang="en">
 
-.mb {
-    margin-bottom: 15px;
-}
-.mb10 {
-    margin-bottom: 10px;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/sto.css">
+    
+</head>
 
-.demo {
-    min-height: 100px;
-    background-color: aqua;
-}
+<body>
+    <div class="form1">
+        <form action="index.php?act=adddm" method="post" enctype="multipart/form-data">
+            <!-- form add sản phẩm -->
+            <h2>Thêm Danh Mục</h2>
+            <table class="add">
+                <tr>
+                    <td>ID</td>
+                    <td><input type="text" value="AUTO" readonly></td>
+                </tr>
+                <tr>
+                    <td>Tên Loại</td>
+                    <br>
+                    <td><input type="text" name="name" id=""></td>
+                </tr>
+            </table>
+            <input class="sb" type="submit" name="themmoi" value="Thêm">
 
-.mr {
-    margin-right: 2%;
-}
 
-/* boxtaikhoan */
-.formtaikhoan {
-    line-height: 150%;
-}
-
-.formtaikhoan input[type="text"],
-.formtaikhoan input[type="email"],
-.formtaikhoan input[type="password"],
-.frmcontent input[type="text"] {
-    padding: 5px 10px;
-    margin: 5px;
-    width: 100%;
-    border: 1px #CCC solid;
-    border-radius: 5px;
-}
-
-.formtaikhoan input[type="checkbox"] {
-    border-radius: 5px;
-}
-
-.formtaikhoan input[type="submit"],
-.frmcontent input[type="submit"],
-.formtaikhoan input[type="reset"],
-.frmcontent input[type="reset"],
-.frmcontent input[type="button"] {
-    border-radius: 5px;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: white;
-    border: 1px #CCC solid;
-}
-</style>
-<div class="content-page">
-    <div class="content">
-
-        <!-- Start Content-->
-        <div class="container-fluid">
-
-            <!-- start page title -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title-box">
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="index.php">Trang chủ admin</a></li>
-                                <li class="breadcrumb-item active">Thêm danh mục</li>
-                            </ol>
-                        </div>
-                        <h3 class="page-title">Thêm danh mục sản phẩm</h3>
-                    </div>
-                    
-                        <div class="row frmcontent">
-                            <form action="index.php?act=adddm" method="post">
-                                <div class="row mb10">Mã loại: <br>
-                                    <input type="text" name="maloai" disabled>
-                                </div>
-                                <div class="row mb10">Tên loại: <br>
-                                    <input type="text" name="tenloai">
-                                </div>
-                                <div class="row mb10">
-                                    <input type="submit" name="themmoi" value="Thêm mới">
-                                    <input type="reset" value="Nhập lại">
-                                    <a href="index.php?act=lisdm"> <input type="button" value="Danh sách"></a>
-                                </div>
-                                <?php
-                                if (isset($thongbao) && ($thongbao != "")) echo $thongbao;
-                                ?>
-                            </form>
-                        </div>
-                    
-                </div>
-            </div>
-
+        </form>
+        <div class="sc">
+            <a href="index.php?act=listdm">Danh Sách</a>
         </div>
-        <!-- end page title -->
+    </div>
+
+</body>
+
+</html>
